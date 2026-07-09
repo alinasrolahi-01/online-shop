@@ -1,1 +1,36 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: "Dana";
+  src: url("../assets/fonts/Dana/DanaVF.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PlusSans";
+  src: url("../assets/fonts/PlusJakartaSans/PlusJakartaSans-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Rokh";
+  src: url("../assets/fonts/Rokh/RokhVFGX.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@theme {
+  --font-dana: "Dana", sans-serif;
+  --font-plus-sans: "PlusSans", sans-serif;
+  --font-rokh: "Rokh", sans-serif;
+}
+
+
+@utility wrapper {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 16px;
+}

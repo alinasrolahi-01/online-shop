@@ -1,11 +1,11 @@
 import { createBrowserRouter } from "react-router";
 
-import RoutesLayout from "./components/RoutesLayout";
-import Home from "./components/Home/Home";
-import Shop from "./components/Shop/Shop";
-import Blog from "./components/Blog/Blog";
-import About from "./components/About/About";
-import Contact from "./components/Contact/Contact";
+import RoutesLayout from "./layouts/RoutesLayout";
+import Home from "./pages/Home/Home";
+import Shop from "./pages/Shop/Shop";
+import Blog from "./pages/Blog/Blog";
+import About from "./pages/About/About";
+import Contact from "./pages/Contact/Contact";
 
 
 

@@ -5,7 +5,7 @@ const BaseButton = ({ title, icon , className }) => {
       
         <button className={`flex items-center justify-center gap-2 ${className}`}>
             {icon}
-            <span className='text-xl font-plus-sans font-bold'>{title}</span>
+            <span className='text-xl font-dana font-bold'>{title}</span>
         </button>
   )
 }

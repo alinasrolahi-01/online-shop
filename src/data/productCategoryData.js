@@ -1,8 +1,20 @@
+import { FaLaptop } from "react-icons/fa";
+import { FaMobileScreen } from "react-icons/fa6";
+import { MdMonitor } from "react-icons/md";
+import { GiLoincloth } from "react-icons/gi";
+import { MdOutlineSportsGymnastics } from "react-icons/md";
+import { MdOnlinePrediction } from "react-icons/md";
+import { MdOutlineSwitchAccessShortcutAdd } from "react-icons/md";
+import { FaBabyCarriage } from "react-icons/fa";
+
+
+
 export const productCategories = [
   {
     id: 1,
     title: "لپتاپ",
     slug: "laptop",
+    icon: FaLaptop ,
     items: [
       { id: 1, title: "سامسونگ", slug: "samsung" },
       { id: 2, title: "اچ پی", slug: "hp" },
@@ -14,6 +26,7 @@ export const productCategories = [
     id: 2,
     title: "موبایل",
     slug: "mobile",
+    icon: FaMobileScreen ,
     items: [
       { id: 1, title: "سامسونگ", slug: "samsung" },
       { id: 2, title: "اپل", slug: "apple" },
@@ -25,6 +38,7 @@ export const productCategories = [
     id: 3,
     title: "مانیتور",
     slug: "monitor",
+    icon: MdMonitor , 
     items: [
       { id: 1, title: "سامسونگ", slug: "samsung" },
       { id: 2, title: "گیمینگ", slug: "gaming" },
@@ -36,6 +50,7 @@ export const productCategories = [
     id: 4,
     title: "لباس",
     slug: "clothing",
+    icon: GiLoincloth , 
     items: [
       { id: 1, title: "مردانه", slug: "men" },
       { id: 2, title: "زنانه", slug: "women" },
@@ -47,6 +62,7 @@ export const productCategories = [
     id: 5,
     title: "ورزش ذهن",
     slug: "mind-sport",
+    icon: MdOutlineSportsGymnastics,
     items: [
       { id: 1, title: "کتاب فکری", slug: "thinking-books" },
       { id: 2, title: "بازی های فکری", slug: "brain-games" },
@@ -58,6 +74,7 @@ export const productCategories = [
     id: 6,
     title: "آموزش آنلاین",
     slug: "online-learning",
+    icon: MdOnlinePrediction , 
     items: [
       { id: 1, title: "دوره برنامه‌نویسی", slug: "programming" },
       { id: 2, title: "دوره طراحی دوخت", slug: "fashion-design" },
@@ -69,6 +86,7 @@ export const productCategories = [
     id: 7,
     title: "اکسسوری",
     slug: "accessories",
+    icon: MdOutlineSwitchAccessShortcutAdd ,
     items: [
       { id: 1, title: "ساعت مچی", slug: "watch" },
       { id: 2, title: "گردنبند", slug: "necklace" },
@@ -80,6 +98,7 @@ export const productCategories = [
     id: 8,
     title: "کودک و نوزاد",
     slug: "baby-kids",
+    icon: FaBabyCarriage ,
     items: [
       { id: 1, title: "لباس کودک", slug: "kids-clothes" },
       { id: 2, title: "اسباب‌بازی", slug: "toys" },

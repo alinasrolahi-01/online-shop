@@ -26,7 +26,7 @@ const SearchBox = () => {
   return (
     <div
       ref={dropHandle}
-      className="relative w-[500px] h-[56px] border border-[#E7EAF0] rounded-2xl py-3 px-4 flex items-center gap-1 font-plus-sans transition-all duration-300 focus-within:border-blue-500 group"
+      className="relative md:w-[500px] md:h-[56px] border border-[#E7EAF0] rounded-2xl py-3 px-4 md:flex items-center gap-1 font-plus-sans transition-all duration-300 focus-within:border-blue-500 group hidden "
     >
       <CiSearch className="text-4xl text-[#818181] transition-colors duration-300 group-focus-within:text-blue-500" />
 

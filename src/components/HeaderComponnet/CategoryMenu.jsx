@@ -3,6 +3,7 @@ import { IoMenuOutline } from "react-icons/io5";
 import { IoIosArrowDown } from "react-icons/io";
 import DropDownBox from "../common/DropDownBox";
 import SeeAllBtn from "./SeeAllBtn";
+import CategoryMenuItems from "./CategoryMenuItems ";
 
 import { RiGalleryView2 } from "react-icons/ri";
 
@@ -43,8 +44,8 @@ const CategoryMenu = () => {
           }
         `}
       >
-        <DropDownBox title="دسته بندی محصولات" icon={<RiGalleryView2 className="text-2xl"/>} trigger={<SeeAllBtn/>} >
-         testt
+        <DropDownBox title="دسته بندی محصولات" icon={<RiGalleryView2 className="text-2xl"/>} trigger={<SeeAllBtn/>}  >
+           <CategoryMenuItems />
         </DropDownBox>
       </div>
     </div>

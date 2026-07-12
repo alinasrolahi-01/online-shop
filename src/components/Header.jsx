@@ -60,7 +60,7 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Menu  */}n
+      {/* Mobile Menu  */}
        <div className={`w-[360px] fixed top-0 right-0 bottom-0 bg-white transition-all duration-300 ease-in-out md:hidden z-50 border-l-4 border-blue-500 ${isOpen ? "translate-x-0 opacity-100" : "translate-x-[460px] opacity-0" }`}>
         <MainMobileMenu/>
       </div>

@@ -13,8 +13,8 @@ const HeaderTitle = () => {
                 تجربه کن
             </h1>
 
-            <p class="fade-up d2 text-lg text-slate-500 leading-loose max-w-lg font-dana">
-                بیش از <strong class="text-slate-700">۳,۵۰۰ محصول اورجینال</strong> از برترین برندهای جهان با
+            <p className="fade-up d2 text-lg text-slate-500 leading-loose max-w-lg font-dana">
+                بیش از <strong className="text-slate-700">۳,۵۰۰ محصول اورجینال</strong> از برترین برندهای جهان با
                 گارانتی ۲ ساله، ارسال فوری و پشتیبانی ۲۴/۷.
             </p>
         </>

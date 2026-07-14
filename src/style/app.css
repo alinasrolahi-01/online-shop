@@ -21,6 +21,14 @@
   font-style: normal;
 }
 
+* {
+  font-family: Dana, sans-serif;
+}
+
+body {
+  font-family: Dana, sans-serif;
+}
+
 @theme {
   --font-dana: "Dana", sans-serif;
   --font-plus-sans: "PlusSans", sans-serif;

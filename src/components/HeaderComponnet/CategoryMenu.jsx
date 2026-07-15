@@ -13,7 +13,7 @@ const CategoryMenu = () => {
 
   return (
     <div
-      className="relative"
+      className="relative z-30"
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >

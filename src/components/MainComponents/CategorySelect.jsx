@@ -2,12 +2,13 @@ import React from 'react'
 import { Link } from 'react-router'
 import { GoArrowLeft } from "react-icons/go";
 import SectionHeader from '../common/SectionHeader';
-
+import { categoryList } from '../../data/categoryList ';
+import CategoryListBox from './CategoryListBox';
 
 const CategorySelect = () => {
     return (
         <div className=' wrapper py-16 '>
-            <div className='flex items-center justify-between'>
+            <div className='flex items-center justify-between mb-10'>
                 <div>
                     <SectionHeader badge="محصولات ویژه" title="پرفروش‌ترین محصولات" description="انتخاب کاربران در سراسر کشور" align="right" />
                 </div>
@@ -16,6 +17,16 @@ const CategorySelect = () => {
                    <GoArrowLeft />
                 </Link>
             </div>
+
+            <div className='grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-8 gap-3'>
+                {
+                    categoryList.map((item) => (
+                        <CategoryListBox  item={item}/>
+                    ))
+                }
+            </div>
+
+
         </div>
     )
 }

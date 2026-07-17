@@ -3,6 +3,7 @@ import HeroSection from '../../components/HeroSection/HeroSection'
 import HeroSectionDetails from '../../components/HeroSection/HeroSectionDetails'
 import FeaturesBox from '../../components/common/FeaturesBox'
 import CategorySelect from '../../components/MainComponents/CategorySelect'
+import DiscountBoxTime from '../../components/MainComponents/DiscountBoxTime'
 
 const Home = () => {
   return (
@@ -15,6 +16,8 @@ const Home = () => {
     <FeaturesBox/>
 
     <CategorySelect/>
+
+    <DiscountBoxTime/>
     
    </>
   )

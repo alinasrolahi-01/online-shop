@@ -49,7 +49,7 @@ const DiscountBoxTime = () => {
 
 
     return (
-        <div className=' flex items-center justify-center gap-4 sm:justify-between flex-wrap sm:flex-nowrap wrapper relative overflow-hidden rounded-3xl bg-gradient-to-l from-indigo-700 via-purple-700 to-violet-700 p-8 sm:p-12 '>
+        <div className=' flex items-center justify-center gap-4 sm:justify-between flex-wrap sm:flex-nowrap wrapper relative overflow-hidden rounded-3xl bg-gradient-to-l from-indigo-700 via-purple-700 to-violet-700 p-8 sm:p-12 pb-[40px] mt-[40px]'>
 
             <div className='text-center sm:text-right'>
                 <div>

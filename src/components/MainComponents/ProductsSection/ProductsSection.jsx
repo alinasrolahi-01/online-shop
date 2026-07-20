@@ -21,7 +21,7 @@ const ProductsSection = () => {
         align='right'
       />
 
-      <div className='flex items-center gap-3 flex-wrap mt-[32px]'>
+      <div className='flex items-center gap-3 flex-wrap mt-[32px] mb-5'>
 
         <button
           onClick={() => setActiveCategory("همه")}
@@ -60,7 +60,7 @@ const ProductsSection = () => {
       </div>
 
       <div>
-         <GridRowProducts/>
+         <GridRowProducts activeCategory={activeCategory} products={products}/>
       </div>
 
     </div>

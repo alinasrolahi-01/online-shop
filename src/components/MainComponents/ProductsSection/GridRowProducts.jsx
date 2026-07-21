@@ -25,7 +25,7 @@ const GridRowProducts = ({ activeCategory, products }) => {
     <>
       <div className='flex items-center justify-between bg-white rounded-2xl p-3 border border-slate-100 shadow-sm mb-6'>
         <div className=' relative'>
-          <div onClick={() => setIsOpen(true)} className='flex items-center group gap-2'>
+          <div onClick={() => setIsOpen((prev) => !prev)} className='flex items-center group gap-2'>
             <HiOutlineFilter className=' text-gray-400' />
             <span className=' group-hover:text-violet-600 cursor-pointer'>پیش فرض</span>
             <IoIosArrowDown className=' group-hover:text-violet-600 cursor-pointer' />
@@ -60,7 +60,7 @@ const GridRowProducts = ({ activeCategory, products }) => {
       {/* show products Grid/Row */}
 
       <div>
-        {isGrid ? <GridProducts products={products} activeCategory={activeCategory}  sortValue={sortProducts} /> : <RowsProducts />}
+        {isGrid ? <GridProducts products={products} activeCategory={activeCategory}  sortValue={sortProducts} /> : <RowsProducts products={products} activeCategory={activeCategory}  sortValue={sortProducts} />}
       </div>
     </>
 

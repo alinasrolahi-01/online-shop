@@ -17,9 +17,11 @@ import SupporInfoCall from './HeaderComponnet/SupporInfoCall'
 import SearchBoxMobile from "./HeaderComponnet/SearchBoxMobile"
 import MainMobileMenu from './HeaderComponnet/MainMobileMenu';
 import OverLay from './common/OverLay';
+import CartDropDown from './HeaderComponnet/CartDropDown';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const [isCartShopOpen, setisCartShopOpen] = useState(false)
 
 
   return (
@@ -35,7 +37,15 @@ const Header = () => {
                 <SearchBoxMobile />
                 <LikeBox />
                 <NotficationBox />
-                <SHoppingCartBox />
+
+                <div className="relative group">
+                  <SHoppingCartBox />
+
+                  <div className="absolute top-full left-0 hidden group-hover:block">
+                    <CartDropDown/>
+                  </div>
+                </div>
+
                 {/* this is Login Btn DeskTop. ↓↓↓↓↓↓*/}
                 <BaseButton title="ورود | ثبت نام" icon={<TbLogin2 className="text-3xl" />} className="bg-gradient-to-l from-[#6294ff] to-[#4681ff] hover:from-[#6294ff] hover:to-[#4681ff] duration-400 px-[20px] lg:px-[30px] py-[12px] lg:py-[15px] rounded-[12px] lg:rounded-[16px] md:flex justify-center items-center w-fit gap-3 lg:gap-4 transition-all duration-300 hover:shadow-lg hover:shadow-[#6294ff]/30 group text-white cursor-pointer min-w-[190px] hidden " />
 
@@ -61,11 +71,11 @@ const Header = () => {
       </div>
 
       {/* Mobile Menu  */}
-       <div className={`w-[360px] fixed top-0 right-0 bottom-0 bg-white transition-all duration-300 ease-in-out md:hidden z-50 border-l-4 border-blue-500 ${isOpen ? "translate-x-0 opacity-100" : "translate-x-[460px] opacity-0" }`}>
-        <MainMobileMenu/>
+      <div className={`w-[360px] fixed top-0 right-0 bottom-0 bg-white transition-all duration-300 ease-in-out md:hidden z-50 border-l-4 border-blue-500 ${isOpen ? "translate-x-0 opacity-100" : "translate-x-[460px] opacity-0"}`}>
+        <MainMobileMenu />
       </div>
 
-       {isOpen && <OverLay onClick={() => setIsOpen(false)}  />}
+      {isOpen && <OverLay onClick={() => setIsOpen(false)} />}
 
     </>
   )

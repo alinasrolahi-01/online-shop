@@ -18,6 +18,7 @@ import SearchBoxMobile from "./HeaderComponnet/SearchBoxMobile"
 import MainMobileMenu from './HeaderComponnet/MainMobileMenu';
 import OverLay from './common/OverLay';
 import CartDropDown from './HeaderComponnet/CartDropDown';
+import { NavLink } from 'react-router';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -47,7 +48,9 @@ const Header = () => {
                 </div>
 
                 {/* this is Login Btn DeskTop. ↓↓↓↓↓↓*/}
-                <BaseButton title="ورود | ثبت نام" icon={<TbLogin2 className="text-3xl" />} className="bg-gradient-to-l from-[#6294ff] to-[#4681ff] hover:from-[#6294ff] hover:to-[#4681ff] duration-400 px-[20px] lg:px-[30px] py-[12px] lg:py-[15px] rounded-[12px] lg:rounded-[16px] md:flex justify-center items-center w-fit gap-3 lg:gap-4 transition-all duration-300 hover:shadow-lg hover:shadow-[#6294ff]/30 group text-white cursor-pointer min-w-[190px] hidden " />
+               <NavLink to="/dashboard">
+                 <BaseButton title="ورود | ثبت نام" icon={<TbLogin2 className="text-3xl" />} className="bg-gradient-to-l from-[#6294ff] to-[#4681ff] hover:from-[#6294ff] hover:to-[#4681ff] duration-400 px-[20px] lg:px-[30px] py-[12px] lg:py-[15px] rounded-[12px] lg:rounded-[16px] md:flex justify-center items-center w-fit gap-3 lg:gap-4 transition-all duration-300 hover:shadow-lg hover:shadow-[#6294ff]/30 group text-white cursor-pointer min-w-[190px] hidden " />
+               </NavLink>
 
 
                 {/* this is Login Btn Mobile. ↓↓↓↓↓↓*/}

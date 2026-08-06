@@ -1,10 +1,40 @@
 import { useState, useEffect, useRef } from "react";
-import { NavLink } from "react-router";
+import { NavLink, useNavigate } from "react-router";
+import { userFakeData } from "../../data/userFakeData";
 
 export default function Auth() {
   const [isLogin, setIsLogin] = useState(true);
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
   const blobRef = useRef(null);
+
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
+
+  const navigate = useNavigate()
+
+  const userHandler = () => {
+    const user = userFakeData.find((item) => {
+      return (item.phone === username || item.email === username || item.username === username) && item.password === password
+    })
+
+    if (!user) {
+      alert("کاربر موجود نمیباشد")
+      return
+    }
+
+    if (!user.isActive) {
+      alert("حساب کاربری شما غیرفعال است.");
+      return;
+    }
+
+    localStorage.setItem("token", user.token);
+    localStorage.setItem("user", JSON.stringify(user.fullName));
+
+    navigate("/dashboard");
+
+  }
+
+
 
   useEffect(() => {
     const handleMove = (e) => setMouse({ x: e.clientX, y: e.clientY });
@@ -99,6 +129,8 @@ export default function Auth() {
                   شماره موبایل یا ایمیل
                 </label>
                 <input
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
                   type="text"
                   className="w-full bg-white/50 backdrop-blur-sm border border-slate-200 text-slate-800 rounded-2xl px-5 py-3.5 outline-none focus:bg-white focus:border-blue-300 transition-all duration-500 placeholder:text-slate-400"
                   placeholder="مثال: 09123456789"
@@ -118,6 +150,8 @@ export default function Auth() {
                   </a>
                 </div>
                 <input
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   type="password"
                   className="w-full bg-white/50 backdrop-blur-sm border border-slate-200 text-slate-800 rounded-2xl px-5 py-3.5 outline-none focus:bg-white focus:border-blue-300 transition-all duration-500 placeholder:text-slate-400"
                   placeholder="••••••••"
@@ -125,7 +159,9 @@ export default function Auth() {
               </div>
 
               <div className="stagger-item delay-4 pt-2">
-                <button className="cursor-pointer w-full bg-slate-800 hover:bg-blue-600 text-white font-medium py-4 rounded-2xl transition-all duration-500 hover:-translate-y-1 active:translate-y-0 active:scale-95">
+                <button
+                 onClick={userHandler}
+                 className="cursor-pointer w-full bg-slate-800 hover:bg-blue-600 text-white font-medium py-4 rounded-2xl transition-all duration-500 hover:-translate-y-1 active:translate-y-0 active:scale-95">
                   ورود به حساب کاربری
                 </button>
               </div>

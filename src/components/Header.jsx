@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import { TbLogin2 } from "react-icons/tb";
 import { IoMenuOutline } from "react-icons/io5";
-
+import { useEffect } from 'react';
 
 
 import MainLogo from './HeaderComponnet/MainLogo'
@@ -19,11 +19,24 @@ import MainMobileMenu from './HeaderComponnet/MainMobileMenu';
 import OverLay from './common/OverLay';
 import CartDropDown from './HeaderComponnet/CartDropDown';
 import { NavLink } from 'react-router';
+import {userFakeData} from '../data/userFakeData';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [isCartShopOpen, setisCartShopOpen] = useState(false)
+  const [userName, setUserName] = useState("")
 
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const user = localStorage.getItem("user");
+
+    if (token && user) {
+      const foundUser = userFakeData.find((item) => item.token === token && item.fullName === JSON.parse(user));
+      if (foundUser) {
+        setUserName(foundUser.fullName);
+      }
+    }
+  }, []);
 
   return (
     <>
@@ -49,7 +62,7 @@ const Header = () => {
 
                 {/* this is Login Btn DeskTop. ↓↓↓↓↓↓*/}
                <NavLink to="/dashboard">
-                 <BaseButton title="ورود | ثبت نام" icon={<TbLogin2 className="text-3xl" />} className="bg-gradient-to-l from-[#6294ff] to-[#4681ff] hover:from-[#6294ff] hover:to-[#4681ff] duration-400 px-[20px] lg:px-[30px] py-[12px] lg:py-[15px] rounded-[12px] lg:rounded-[16px] md:flex justify-center items-center w-fit gap-3 lg:gap-4 transition-all duration-300 hover:shadow-lg hover:shadow-[#6294ff]/30 group text-white cursor-pointer min-w-[190px] hidden " />
+                 <BaseButton title={userName || "ورود | ثبت نام"} icon={<TbLogin2 className="text-3xl" />} className="bg-gradient-to-l from-[#6294ff] to-[#4681ff] hover:from-[#6294ff] hover:to-[#4681ff] duration-400 px-[20px] lg:px-[30px] py-[12px] lg:py-[15px] rounded-[12px] lg:rounded-[16px] md:flex justify-center items-center w-fit gap-3 lg:gap-4 transition-all duration-300 hover:shadow-lg hover:shadow-[#6294ff]/30 group text-white cursor-pointer min-w-[190px] hidden " />
                </NavLink>
 
 

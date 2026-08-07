@@ -7,9 +7,15 @@ import Blog from "./pages/Blog/Blog";
 import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
 import Auth from "./pages/Auth/Auth";
-import Dashboard from "./pages/Dashboard/Dashboard";
+import DashboardLayout from "./pages/Dashboard/DashboardLayout";
 import PrivateRoute from "./components/common/PrivateRoute";
 
+import HomeDashboard from "./pages/Dashboard/HomeDashboard/HomeDashboard";
+import OrderDashboard from "./pages/Dashboard/OrderDashboard/OrderDashboard"
+import ProductsDashboard from "./pages/Dashboard/ProductsDashboard/ProductsDashboard"
+import CustomerDashboard from "./pages/Dashboard/CustomerDashboard/CustomerDashboard";
+import AnalysisDashboard from "./pages/Dashboard/AnalysisDashboard/AnalysisDashboard";
+import SettingDashboard from "./pages/Dashboard/SettingDashboard/SettingDashboard"
 
 
 const router = createBrowserRouter([
@@ -36,7 +42,8 @@ const router = createBrowserRouter([
             {
                 path: "contact-us",
                 element: <Contact />
-            }
+            },
+
         ]
     },
     {
@@ -47,9 +54,35 @@ const router = createBrowserRouter([
         path: "dashboard",
         element: (
             <PrivateRoute>
-                <Dashboard/>
+                <DashboardLayout />
             </PrivateRoute>
-        )
+        ),
+        children: [
+            {
+                index: true,
+                element: <HomeDashboard/>
+            },
+            {
+                path: "order",
+                element: <OrderDashboard/>
+            },
+            {
+                path: "product",
+                element: <ProductsDashboard/>
+            },
+            {
+                path: "customer",
+                element: <CustomerDashboard/>
+            },
+            {
+                path: "analysis",
+                element: <AnalysisDashboard/>
+            },
+            {
+                path: "setting",
+                element: <SettingDashboard/>
+            }
+        ]
     }
 ]);
 

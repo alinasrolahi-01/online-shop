@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import { NavLink, useNavigate } from "react-router";
 import { userFakeData } from "../../data/userFakeData";
 
+import { loginSchema } from "../../validate/authSchema";
+
 export default function Auth() {
   const [isLogin, setIsLogin] = useState(true);
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
@@ -9,10 +11,25 @@ export default function Auth() {
 
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
+  const [errors, setErrors] = useState({});
 
   const navigate = useNavigate()
 
   const userHandler = () => {
+    const result = loginSchema.safeParse({ username, password });
+
+    if (!result.success) {
+      const fieldErrors = {};
+      result.error.issues.forEach((issue) => {
+        fieldErrors[issue.path[0]] = issue.message;
+      });
+      setErrors(fieldErrors);
+      return;
+    }
+
+    setErrors({});
+
+    // از اینجا به بعد منطق قبلی خودت بدون تغییر باقی می‌مونه
     const user = userFakeData.find((item) => {
       return (item.phone === username || item.email === username || item.username === username) && item.password === password
     })
@@ -31,8 +48,7 @@ export default function Auth() {
     localStorage.setItem("user", JSON.stringify(user.fullName));
 
     navigate("/dashboard");
-
-  }
+  };
 
 
 
@@ -130,11 +146,19 @@ export default function Auth() {
                 </label>
                 <input
                   value={username}
-                  onChange={(e) => setUsername(e.target.value)}
+                  onChange={(e) => {
+                    setUsername(e.target.value);
+                    if (errors.username) {
+                      setErrors((prev) => ({ ...prev, username: undefined }));
+                    }
+                  }}
                   type="text"
                   className="w-full bg-white/50 backdrop-blur-sm border border-slate-200 text-slate-800 rounded-2xl px-5 py-3.5 outline-none focus:bg-white focus:border-blue-300 transition-all duration-500 placeholder:text-slate-400"
                   placeholder="مثال: 09123456789"
                 />
+                {errors.username && (
+                  <p className="text-red-500 text-xs mt-1.5 mr-1">{errors.username}</p>
+                )}
               </div>
 
               <div className="stagger-item delay-3">
@@ -151,17 +175,25 @@ export default function Auth() {
                 </div>
                 <input
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                    if (errors.password) {
+                      setErrors((prev) => ({ ...prev, password: undefined }));
+                    }
+                  }}
                   type="password"
                   className="w-full bg-white/50 backdrop-blur-sm border border-slate-200 text-slate-800 rounded-2xl px-5 py-3.5 outline-none focus:bg-white focus:border-blue-300 transition-all duration-500 placeholder:text-slate-400"
                   placeholder="••••••••"
                 />
+                {errors.password && (
+                  <p className="text-red-500 text-xs mt-1.5 mr-1">{errors.password}</p>
+                )}
               </div>
 
               <div className="stagger-item delay-4 pt-2">
                 <button
-                 onClick={userHandler}
-                 className="cursor-pointer w-full bg-slate-800 hover:bg-blue-600 text-white font-medium py-4 rounded-2xl transition-all duration-500 hover:-translate-y-1 active:translate-y-0 active:scale-95">
+                  onClick={userHandler}
+                  className="cursor-pointer w-full bg-slate-800 hover:bg-blue-600 text-white font-medium py-4 rounded-2xl transition-all duration-500 hover:-translate-y-1 active:translate-y-0 active:scale-95">
                   ورود به حساب کاربری
                 </button>
               </div>

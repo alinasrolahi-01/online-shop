@@ -1,6 +1,6 @@
 import React from "react";
 import { Pencil, Trash2, Star, Package } from "lucide-react";
-import StatusBadge from "./ui/StatusBadge";
+import StatusBadge from "../HomePage/ui/StatusBadge";
 
 const STOCK_VARIANTS_BY_LEVEL = (stock) =>
   stock > 10 ? "bg-green-100 text-green-600" : stock > 0 ? "bg-amber-100 text-amber-600" : "bg-red-100 text-red-600";

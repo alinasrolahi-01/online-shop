@@ -1,8 +1,10 @@
 import React from 'react'
+import ProductsPage from '../../../components/Dashboard/ProductsDashboard/ProductsPage'
+
 
 const ProductsDashboard = () => {
   return (
-    <div>ProductsDashboard</div>
+    <ProductsPage/>
   )
 }
 

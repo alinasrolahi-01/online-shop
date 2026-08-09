@@ -1,8 +1,9 @@
 import React from 'react'
+import OrdersPage from '../../../components/Dashboard/OrderDashboard/OrdersPage'
 
 const OrderDashboard = () => {
   return (
-    <div>OrderDashboard</div>
+    <OrdersPage/>
   )
 }
 

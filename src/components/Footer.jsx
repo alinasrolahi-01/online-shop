@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 const Footer = () => {
   return (
-    <footer className="bg-slate-900 text-slate-300 ">
+    <footer className="bg-slate-900 text-slate-300 relative mt-[100px] md:mt-[150px] overflow-hidden">
       <div className="wrapper py-14">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           {/* معرفی */}

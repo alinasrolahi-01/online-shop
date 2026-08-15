@@ -16,6 +16,7 @@ import ProductsDashboard from "./pages/Dashboard/ProductsDashboard/ProductsDashb
 import CustomerDashboard from "./pages/Dashboard/CustomerDashboard/CustomerDashboard";
 import AnalysisDashboard from "./pages/Dashboard/AnalysisDashboard/AnalysisDashboard";
 import SettingDashboard from "./pages/Dashboard/SettingDashboard/SettingDashboard"
+import NotFound from "./pages/NotFound/NotFound";
 
 
 const router = createBrowserRouter([
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
                 path: "contact-us",
                 element: <Contact />
             },
+            {
+                path: "*",
+                element: <NotFound />
+            }
 
         ]
     },

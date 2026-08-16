@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import useBasket from "../../../hooks/useBasket";
+
+
 
 // آیکن‌های SVG جایگزین lucide-react
 const HeartIcon = ({ filled }) => (
@@ -21,6 +24,8 @@ const EyeIcon = () => (
 );
 
 const GridProducts = ({ activeCategory, products, sortValue }) => {
+
+  const {addToBasket} = useBasket() 
   const [liked, setLiked] = useState({});
 
   const toggleLike = (id) => {
@@ -122,7 +127,9 @@ const GridProducts = ({ activeCategory, products, sortValue }) => {
                     </span>
                   </div>
 
-                  <button className="flex items-center gap-1 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium px-4 py-2 rounded-xl transition-colors">
+                  <button
+                  onClick={() => addToBasket(product.id) } 
+                  className="flex items-center gap-1 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium px-4 py-2 rounded-xl transition-colors">
                     <PlusIcon />
                     افزودن
                   </button>

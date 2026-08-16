@@ -1,20 +1,23 @@
 import React from "react";
+import useBasket from "../../hooks/useBasket";
 
 const CartDropDown = () => {
-  const cartItems = [
-    {
-      id: 1,
-      title: "MacBook Pro M3",
-      price: "۸۹,۹۰۰,۰۰۰",
-      image: "/images/products/macbook-pro.jpg",
-    },
-    {
-      id: 2,
-      title: "AirPods Pro 2",
-      price: "۱۲,۵۰۰,۰۰۰",
-      image: "/images/products/airpods.jpg",
-    },
-  ];
+  // const cartItems = [
+  //   {
+  //     id: 1,
+  //     title: "MacBook Pro M3",
+  //     price: "۸۹,۹۰۰,۰۰۰",
+  //     image: "/images/products/macbook-pro.jpg",
+  //   },
+  //   {
+  //     id: 2,
+  //     title: "AirPods Pro 2",
+  //     price: "۱۲,۵۰۰,۰۰۰",
+  //     image: "/images/products/airpods.jpg",
+  //   },
+  // ];
+
+  const {basket} = useBasket()
 
   return (
     <div className="absolute top-full left-0 mt-3 w-80 bg-white rounded-2xl shadow-xl border border-slate-200 z-50 overflow-hidden">
@@ -22,13 +25,13 @@ const CartDropDown = () => {
       <div className="flex items-center justify-between p-4 border-b">
         <h3 className="font-bold text-slate-800">سبد خرید</h3>
         <span className="text-sm text-slate-500">
-          {cartItems.length} محصول
+          {basket.length} محصول
         </span>
       </div>
 
       {/* Items */}
       <div className="max-h-72 overflow-y-auto">
-        {cartItems.map((item) => (
+        {basket.map((item) => (
           <div
             key={item.id}
             className="flex items-center gap-3 p-4 border-b last:border-b-0 hover:bg-slate-50 transition"

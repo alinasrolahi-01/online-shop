@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { allProducts, formatPrice } from "./productsHelpers";
+import { useBasket } from "../../context/BasketContext";
 
-const ProductCard = ({ product, isWishlisted, isInCart, onToggleWishlist, onToggleCart }) => (
+const ProductCard = ({ product, isWishlisted, isInCart, onToggleWishlist, onToggleCart , addToBasket }) => (
   <a
     href="#"
     className="product-card bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group flex flex-col"
@@ -76,6 +77,7 @@ const ProductCard = ({ product, isWishlisted, isInCart, onToggleWishlist, onTogg
           onClick={(e) => {
             e.preventDefault();
             onToggleCart(product.id);
+            addToBasket(product.id)
           }}
           className={`flex items-center justify-center w-10 h-10 rounded-xl transition-all duration-300 ${
             isInCart
@@ -100,6 +102,7 @@ const ProductCard = ({ product, isWishlisted, isInCart, onToggleWishlist, onTogg
 const ProductGridView = () => {
   const [wishlist, setWishlist] = useState([]);
   const [cart, setCart] = useState([]);
+  const {addToBasket} = useBasket();
 
   const toggleWishlist = (id) => {
     setWishlist((prev) => (prev.includes(id) ? prev.filter((itemId) => itemId !== id) : [...prev, id]));
@@ -121,6 +124,7 @@ const ProductGridView = () => {
           isInCart={cart.includes(product.id)}
           onToggleWishlist={toggleWishlist}
           onToggleCart={toggleCart}
+          addToBasket={addToBasket}
         />
       ))}
     </div>

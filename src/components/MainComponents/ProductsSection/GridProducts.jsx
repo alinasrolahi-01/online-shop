@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import useBasket from "../../../hooks/useBasket";
+import { useBasket } from "../../../context/BasketContext";
 
 
 
@@ -129,7 +129,7 @@ const GridProducts = ({ activeCategory, products, sortValue }) => {
 
                   <button
                   onClick={() => addToBasket(product.id) } 
-                  className="flex items-center gap-1 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium px-4 py-2 rounded-xl transition-colors">
+                  className="flex items-center gap-1 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium px-4 py-2 rounded-xl transition-colors cursor-pointer">
                     <PlusIcon />
                     افزودن
                   </button>

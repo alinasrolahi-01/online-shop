@@ -1,5 +1,5 @@
 import React from "react";
-import useBasket from "../../hooks/useBasket";
+import { useBasket } from "../../context/BasketContext";
 
 const CartDropDown = () => {
   // const cartItems = [
@@ -17,7 +17,7 @@ const CartDropDown = () => {
   //   },
   // ];
 
-  const {basket} = useBasket()
+  const {basket, removeFromBasket} = useBasket()
 
   return (
     <div className="absolute top-full left-0 mt-3 w-80 bg-white rounded-2xl shadow-xl border border-slate-200 z-50 overflow-hidden">
@@ -52,7 +52,9 @@ const CartDropDown = () => {
               </p>
             </div>
 
-            <button className="text-red-500 hover:text-red-700 text-lg">
+            <button
+            onClick={() => removeFromBasket(item.id)}
+             className="text-red-500 hover:text-red-700 text-lg cursor-pointer">
               ×
             </button>
           </div>
